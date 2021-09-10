@@ -8,10 +8,10 @@ Maker a headers.py file and include header
 
 shazam_api_headers = {
     'x-rapidapi-host': "shazam.p.rapidapi.com",
-    'x-rapidapi-key': "<YOURKEY>"
+    'x-rapidapi-key': "SHAZAM KEY GOES HERE"
     }
 
 audioDB_api_headers = {
         'x-rapidapi-host': "theaudiodb.p.rapidapi.com",
-        'x-rapidapi-key': "<YOURKEY>"
+        'x-rapidapi-key': "AUDIODB KEY GOES HERE"
     }
