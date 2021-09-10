@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <form action="#" method=post>
+            <p>Enter a Song to Search:</p>
+            <p><input type="text" name="sng"/></p>
+            <p><input type="submit" value="submit"/></p>
+            </form>
+            {% if submit == True %}
+            <img src={{albumImg}} alt="Lamp" width="500" height="500">
+            <!--<p>Album Image: {{albumImg}}</p>-->
+            {% endif %} 
+      </div>
+      <div class="col-sm">
+        {% if submit == True %}
+        <p>YouTube Link: {{youTube}}</p>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for key, value in song_detail_dict.items() %}
+                <tr>
+                    <th scope="row">{{key}}</th>
+                    <td>{{value}} </td>
+                  </tr>
+                  <tr>   
+                {% endfor %}
+            </tbody>
+          </table>
+
+    {% endif %}  
+      </div>
+    </div>
+  </div>
+
+
+
+
+ 
+
+
+{% endblock %}
