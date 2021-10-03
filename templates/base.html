@@ -1,16 +1,136 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>{% block title %}{% endblock %}</title>
+    <title>Get Song Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {
+            height: 1500px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav">
+                <h4>Song Details API</h4>
+                <ul class="nav nav-pills nav-stacked">
+                </ul><br>
+                <form action="#" method=post>
+                    <p>Enter a Song to Search:</p>
+                    <p><input type="text" name="sng" /></p>
+                    <p><input type="submit" value="submit" /></p>
+                  </form>
+
+                <!-- <div class="input-group">
+                    <input type="text" name="sng" class="form-control" placeholder="Enter a track/song title">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div> -->
+                <br><br>
+                {% if submit == True %}
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{thumbnail}}" alt="Card image cap" width="100%">
+                    <div class="card-body">
+                        <h5 class="card-title">Watch on YouTube</h5>
+                        <p class="card-text">"{{song_detail_dict['Track']}}"</p>
+                        <a href="{{youTube}}" class="btn btn-primary">YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-9">
+                <hr>
+                <h2>You searched for "{{song_detail_dict['Song Searched']}}"</h2>
+                <h5><span class="glyphicon glyphicon-time"></span> {{search_date}}</h5>
+                <br>
+                <p style="text-align:center;"><img class="card-img-top" src="{{albumImg}}" alt="Card image cap"
+                        width="30%"></p>
+                <br><br>
+
+                <h4><small>Details about the track you searched for...</small></h4>
+                <hr>
+                <h2>"{{song_detail_dict['Track']}}"</h2>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, value in song_detail_dict.items() %}
+                        <tr>
+                            <th scope="row">{{key}}</th>
+                            <td>{{value}} </td>
+                        </tr>
+                        <tr>
+                            {% endfor %}
+                    </tbody>
+                </table>
+                <hr>
+                <br><br>
+
+                <pre class="pre-scrollable">
+        <code>
+   
+            <h1>Json Response</h1>
+            <p>{{json}}</p>
+
+        </code>
+    </pre>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
     {% block content %}
     {% endblock %}
 
+    <footer class="container-fluid">
+        <p>Get Details from Track search API!!!</p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -20,6 +140,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
 </body>
 
 </html>
